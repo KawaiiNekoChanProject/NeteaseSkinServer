@@ -8,6 +8,7 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.asCoroutineDispatcher
 import net.nekocurit.netease_skin_server.config.ConfigManager
 import net.nekocurit.netease_skin_server.manager.account.AccountManager
+import net.nekocurit.netease_skin_server.manager.cache.SkinCacheManager
 import net.nekocurit.netease_skin_server.route.installBase
 import net.nekocurit.netease_skin_server.route.routes.routeBase
 import net.nekocurit.netease_skin_server.route.routes.routeDownload
@@ -25,6 +26,7 @@ class NeteaseSkinServer {
 
     val configManager = ConfigManager(this)
     val accountManager = AccountManager(this)
+    val cacheManager = SkinCacheManager(this)
 
     suspend fun start() {
         configManager.readConfig()
