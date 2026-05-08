@@ -7,7 +7,7 @@ import io.ktor.server.routing.*
 @Suppress("SpellCheckingInspection")
 fun Route.routeBase() {
     get("/") {
-        call.respondText("LoliMaker is running..")
+        call.respondText("NteaseSkinServer is running..")
     }
     get("/robots.txt") {
         call.respondText("""

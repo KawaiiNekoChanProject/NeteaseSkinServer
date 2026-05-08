@@ -3,11 +3,12 @@ package net.nekocurit.netease_skin_server.route.routes
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import net.nekocurit.netease_skin_server.NeteaseSkinServer
+import net.nekocurit.netease_skin_server.route.error.ServerRestNotFoundException.Companion.notFound
 import net.nekocurit.x19.extensions.getSkinFromUUID
 
 fun Route.routeDownload(system: NeteaseSkinServer) {
     get("download/{uuid}") {
-        val uuid = call.parameters["uuid"]!!
+        val uuid = call.parameters["uuid"] ?: notFound()
 
         system.accountManager.session
             .let {
