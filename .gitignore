@@ -47,3 +47,6 @@ run/
 ## Crash ###
 *.log
 *.mdmp
+
+config.yml
+cache/

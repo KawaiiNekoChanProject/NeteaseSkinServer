@@ -4,6 +4,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class DataConfigServer(
-    val host: String = "0.0.0.0",
+    val host: String = "127.0.0.1",
     val port: Int = 8080
 )

@@ -10,7 +10,10 @@ import io.ktor.server.request.*
 import io.ktor.server.response.*
 import net.nekocurit.netease_skin_server.route.error.ServerRestException
 import net.nekocurit.netease_skin_server.route.error.ServerRestNotFoundException.Companion.notFound
+import org.slf4j.LoggerFactory
 import org.slf4j.event.Level
+
+private val logger = LoggerFactory.getLogger("NeteaseSkinServer")
 
 fun Application.installBase() {
     install(ContentNegotiation) {
@@ -20,7 +23,10 @@ fun Application.installBase() {
         exception<Throwable> { call, cause ->
             when (cause) {
                 is ServerRestException -> call.respond(cause.code, cause)
-                else -> call.respond(HttpStatusCode.InternalServerError, cause.message ?: "Unknow error")
+                else -> {
+                    logger.error("Unhandled request error", cause)
+                    call.respond(HttpStatusCode.InternalServerError, "Internal Server Error")
+                }
             }
         }
         status(HttpStatusCode.NotFound) { _, _ ->
