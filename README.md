@@ -1,5 +1,11 @@
 <div align="center"><h1>NeteaseSkinServer</h1></div>
 
+
+> [!CAUTION]
+> 此项目已停止维护
+>
+> 我们更推荐您使用 [LiquidBounce-Addon-NetEaseSkin](https://github.com/KawaiiNekoChanProject/LiquidBounce-Addon-NetEaseSkin)
+
 一个简单的实现
 
 允许**非Netease版Minecraft**进入**Netease版Minecraft**的服务器时显示玩家皮肤
